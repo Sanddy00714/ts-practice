@@ -20,7 +20,7 @@ const testemail = `qa_${Date.now()}@test.com`;
 
 console.log(loginUrl);
 console.log(testemail);
-console.log(`Env: ${env.toUpperCase()}, retires left: ${retries}`);
+console.log(`Env: ${env.toUpperCase()}, retries left: ${retries}`);
 
 const word = "Playwright";
 
