@@ -7,14 +7,17 @@ for (const char of sentence) {
     if ("aeiou".includes(char.toLowerCase())) {
         vowelCount++;
     }
-}
-
-for (const char of sentence) {
-    // const letter = sentence[i]?.toLowerCase();
-    if (!"aeiou".includes(char.toLowerCase()) && char !== " ") {
+    else if (char !== " " && !"aeiou".includes(char.toLowerCase())) {
         consonantCount++;
     }
 }
+
+// for (const char of sentence) {
+//     // const letter = sentence[i]?.toLowerCase();
+//     if (!"aeiou".includes(char.toLowerCase()) && char !== " ") {
+//         consonantCount++;
+//     }
+// }
 
 console.log(`Vowels in "${sentence}": ${vowelCount}`);
 console.log(`Consonants in "${sentence}": ${consonantCount}`);

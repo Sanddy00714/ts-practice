@@ -5,7 +5,7 @@ let reversed = "";
 let reversed1 = "";
 let reversed2 = "";
 
-// loop form the last index to 0
+// loop from the last index to 0
 for (let i=input.length -1; i >= 0; i--) {
     reversed += input[i];
 }
