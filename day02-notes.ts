@@ -3,7 +3,6 @@ let attempts = 0;
 
 attempts = attempts + 1; // let can change
 
-// baseUrl = "https://google.com"; // const cannot change once declared
 console.log(`URL: ${baseUrl}, attempts: ${attempts}`);
 
 const username: string = "standard_user";
