@@ -1,3 +1,5 @@
+export{};
+
 function countWords(sentence: string, separator: string = " "): number {
   const pieces = sentence.split(separator);
   let count = 0;
