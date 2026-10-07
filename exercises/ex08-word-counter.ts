@@ -14,7 +14,7 @@ function countWords(sentence: string, separator: string = " "): number {
 
 const testCases = [
   { input: "Playwright makes testing easy", expected: 4 },
-  { input: "extra    space    here", expected: 3 },
+  { input: "   extra    space    here   ", expected: 3 },
   { input: "", expected: 0 },
   { input: "smoke,login,checkout", separator: ",", expected: 3 },
 ];

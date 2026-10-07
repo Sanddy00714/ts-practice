@@ -12,4 +12,15 @@ function factorial(n: number): number | string {
   return result;
 }
 
-console.log(factorial(2));
+const testCases = [
+  { input: 5, expected: 120 },
+  { input: 1, expected: 1 },
+  { input: 0, expected: 1 },
+  { input: 10, expected: 3628800 },
+];
+
+for (const { input, expected } of testCases) {
+  const actual = factorial(input);
+  const result = actual === expected ? "PASS" : "FAIL";
+  console.log(`${result}: factorial(${input}) -> ${actual}`);
+}

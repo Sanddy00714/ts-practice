@@ -19,3 +19,8 @@ for (let i = 0; i < match.length - 1; i++) {
 for (let i = 1; i <= 3; i++) {
   console.log(`Attempt ${i}`);
 }
+
+const square = (n: number): number => n*n;
+
+console.log(square(4));
+console.log(square(9));
