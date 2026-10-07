@@ -1,8 +1,9 @@
 export {};
 
 function factorial(n: number): number | string {
+  // negative numbers have no factorial, so i throw an error to fail loudly
   if (n < 0) {
-    return "Factorial is not possible for negative numbers";
+    throw new Error("Factorial is not possible for negative numbers");    //throw instead of return
   }
   let result = 1;
 
