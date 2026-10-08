@@ -25,7 +25,7 @@ function countConsonants(text: string): number {
 }
 
 const testCases = [
-  { input: "Automation Testing With TypeScript", vowels: 11, consonants: 21 },
+  { input: "Automation Testing With TypeScript", vowels: 11, consonants: 20},
   { input: "xyz", vowels: 0, consonants: 3 },
   { input: "AEIOU", vowels: 5, consonants: 0 },
 ];
