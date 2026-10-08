@@ -1,31 +1,29 @@
 export {};
 
-function findLargestAndSmallest(numbers: number[]): {
-  largest: number;
-  smallest: number;
-} {
+function findLargest(numbers: number[]): number {
   let largest = -Infinity;
-  let smallest = Infinity;
 
   for (const num of numbers) {
     if (num > largest) {
       largest = num;
     }
-
-    if (num < smallest) {
-      smallest = num;
-    }
   }
 
-  return {
-    largest,
-    smallest,
-  };
+  return largest;
 }
 
-const numbers = [12, 45, 7, 89, 23, 89, 3];
+const testCases = [
+  { input: [12, 45, 7, 89, 23, 89, 3], expected: 89 },
+  { input: [-5, -2, -9], expected: -2 },
+  { input: [42], expected: 42 },
+];
 
-const result = findLargestAndSmallest(numbers);
+for (const { input, expected } of testCases) {
+  const actual = findLargest(input);
 
-console.log(`Largest: ${result.largest}`);
-console.log(`Smallest: ${result.smallest}`);
+  const result = actual === expected ? "PASS" : "FAIL";
+
+  console.log(
+    `findLargest(${JSON.stringify(input)}): ${result} (Expected: ${expected}, Actual: ${actual})`,
+  );
+}

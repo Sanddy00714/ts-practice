@@ -1,22 +1,47 @@
-export{};
+export {};
 
-function fizzBuzz(limit: number): string[] {
+function fizzBuzz(n: number): string {
+  if (n % 3 === 0 && n % 5 === 0) {
+    return "FizzBuzz";
+  } else if (n % 5 === 0) {
+    return "Buzz";
+  } else if (n % 3 === 0) {
+    return "Fizz";
+  } else {
+    return `${n}`;
+  }
+}
+
+function fizzBuzzList(limit: number): string[] {
   const results: string[] = [];
 
   for (let i = 1; i <= limit; i++) {
-    if (i % 3 === 0 && i % 5 === 0) {
-      results.push("FizzBuzz");
-    } else if (i % 5 === 0) {
-      results.push("Buzz");
-    } else if (i % 3 === 0) {
-      results.push("Fizz");
-    } else {
-      results.push(`${i}`);
-    }
+    results.push(fizzBuzz(i));
   }
 
   return results;
 }
 
-console.log(fizzBuzz(15).join(", "));
-console.log(fizzBuzz(30).join(", "));
+// Test cases
+const testCases = [
+  { input: 3, expected: "Fizz" },
+  { input: 5, expected: "Buzz" },
+  { input: 15, expected: "FizzBuzz" },
+  { input: 7, expected: "7" },
+];
+
+// PASS / FAIL tests
+for (const { input, expected } of testCases) {
+  const actual = fizzBuzz(input);
+
+  if (actual === expected) {
+    console.log(`PASS: fizzBuzz(${input}) → ${actual}`);
+  } else {
+    console.log(
+      `FAIL: fizzBuzz(${input}) → Expected: ${expected}, Actual: ${actual}`,
+    );
+  }
+}
+
+// Final visual check
+console.log(fizzBuzzList(15).join(", "));
