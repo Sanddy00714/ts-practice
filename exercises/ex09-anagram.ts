@@ -1,7 +1,7 @@
 export {};
 
 function normalize(text: string): string {
-  return text.split("").sort().join("");
+  return text.toLowerCase().replaceAll(" ", "").split("").sort().join("");
 }
 
 function isAnagram(a: string, b: string): boolean {
@@ -19,8 +19,6 @@ const testCases = [
 
 for (const test of testCases) {
   const actual = isAnagram(test.a, test.b);
-
-  console.log(
-    `${actual === test.expected ? "PASS" : "FAIL"}: ${test.a} / ${test.b}`,
-  );
+  const result = actual === test.expected ? "PASS" : "FAIL";
+  console.log(`${result}: isAnagram("${test.a}", "${test.b}") -> ${actual}`);
 }
