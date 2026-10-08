@@ -1,18 +1,31 @@
 export {};
 
-const numbers = [12, 45, 7, 89, 23, 89, 3];
-// const numbers = [-5, -2, -9];
-let largest = -Infinity;
-let smallest = Infinity;
+function findLargestAndSmallest(numbers: number[]): {
+  largest: number;
+  smallest: number;
+} {
+  let largest = -Infinity;
+  let smallest = Infinity;
 
-for (const num of numbers) {
-  if (num > largest) {
-    largest = num;
+  for (const num of numbers) {
+    if (num > largest) {
+      largest = num;
+    }
+
+    if (num < smallest) {
+      smallest = num;
+    }
   }
-  if (num < smallest) {
-    smallest = num;
-  }
+
+  return {
+    largest,
+    smallest,
+  };
 }
 
-console.log(`Largest: ${largest}`);
-console.log(`Smallest: ${smallest}`);
+const numbers = [12, 45, 7, 89, 23, 89, 3];
+
+const result = findLargestAndSmallest(numbers);
+
+console.log(`Largest: ${result.largest}`);
+console.log(`Smallest: ${result.smallest}`);

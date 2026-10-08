@@ -1,16 +1,17 @@
-const sentence = "Automation Testing with Typescript";
-let vowelCount = 0;
-let consonantCount = 0;
+export {};
+function countVowelsAndConsonants(sentence: string): string {
+  let vowelCount = 0;
+  let consonantCount = 0;
 
-for (const char of sentence) {
+  for (const char of sentence) {
     if ("aeiou".includes(char.toLowerCase())) {
-        vowelCount++;
+      vowelCount++;
+    } else if (char !== " ") {
+      consonantCount++;
     }
-    else if (char !== " " ) {
-        consonantCount++;
-    }
+  }
+
+  return `Vowels: ${vowelCount}, Consonants: ${consonantCount}`;
 }
 
-console.log(`Vowels in "${sentence}": ${vowelCount}`);
-console.log(`Consonants in "${sentence}": ${consonantCount}`);
-console.log(`${sentence.toUpperCase()}`);
+console.log(countVowelsAndConsonants("Automation Testing with Typescript"));
