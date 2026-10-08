@@ -1,6 +1,6 @@
 export {};
 
-function factorial(n: number): number | string {
+function factorial(n: number): number {
   // negative numbers have no factorial, so i throw an error to fail loudly
   if (n < 0) {
     throw new Error("Factorial is not possible for negative numbers");    //throw instead of return
