@@ -19,6 +19,6 @@ async function main(): Promise<void> {
 main();
 console.log("G");
 
-// My prediction: ___
-// Actual output: ___
-// What surprised me: ___
+// My prediction: A,C,G,B,D,F,E
+// Actual output: A,C,G,B,D,E,F 
+// What surprised me: pending keeps waiting till all one execute
