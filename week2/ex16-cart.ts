@@ -67,6 +67,13 @@ function check(description: string, actual: unknown, expected: unknown): void {
   );
 }
 
+
+const emptyCart = new Cart();
+
+check("New cart: isEmpty()", emptyCart.isEmpty(), true);
+check("New cart: getItemCount()", emptyCart.getItemCount(), 0);
+check("New cart: getTotal()", emptyCart.getTotal(), 0);
+
 const shoppingCart = new Cart();
 
 shoppingCart.addItem("Sauce Labs Backpack", 29.99);
@@ -82,6 +89,7 @@ check("Lines: still no duplicate line", shoppingCart.getLineCount(), 2);
 shoppingCart.removeItem("Sauce Labs Bike Light");
 check("Count after removing", shoppingCart.getItemCount(), 2);
 check("Lines after removing", shoppingCart.getLineCount(), 1);
+
 const cart = new Cart();
 
 cart.addItem("Sauce Labs Backpack", 29.99);
@@ -90,6 +98,7 @@ cart.clear();
 check("After clear(): isEmpty()", cart.isEmpty(), true);
 
 const secondCart = new Cart();
+
 secondCart.addItem("Sauce Labs Backpack", 29.99);
 secondCart.addItem("Sauce Labs Bike Light", 9.99);
 secondCart.addItem("Sauce Labs Bolt T-Shirt", 15.99);
@@ -97,7 +106,4 @@ secondCart.addItem("Sauce Labs Fleece Jacket", 49.99);
 
 check("Step 4: secondCart.getTotal()", secondCart.getTotal(), 105.96);
 
-const brandNewCart = new Cart();
-
-check("First cart is unaffected", brandNewCart.isEmpty(), true);
-
+check("shoppingCart unaffected by secondCart", shoppingCart.getItemCount(), 2);
