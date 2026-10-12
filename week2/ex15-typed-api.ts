@@ -1,4 +1,4 @@
-export{};
+export {};
 
 interface Address {
   city: string;
@@ -35,7 +35,7 @@ interface Comment {
 // Fetch one user
 async function getUser(id: number): Promise<User> {
   const response = await fetch(
-    `https://jsonplaceholder.typicode.com/users/${id}`
+    `https://jsonplaceholder.typicode.com/users/${id}`,
   );
 
   if (!response.ok) {
@@ -49,7 +49,7 @@ async function getUser(id: number): Promise<User> {
 // Fetch posts by user
 async function getPostsByUser(userId: number): Promise<Post[]> {
   const response = await fetch(
-    `https://jsonplaceholder.typicode.com/posts?userId=${userId}`
+    `https://jsonplaceholder.typicode.com/posts?userId=${userId}`,
   );
 
   if (!response.ok) {
@@ -63,7 +63,7 @@ async function getPostsByUser(userId: number): Promise<Post[]> {
 // Fetch comments by post
 async function getCommentsByPost(postId: number): Promise<Comment[]> {
   const response = await fetch(
-    `https://jsonplaceholder.typicode.com/posts/${postId}/comments`
+    `https://jsonplaceholder.typicode.com/posts/${postId}/comments`,
   );
 
   if (!response.ok) {
@@ -75,17 +75,11 @@ async function getCommentsByPost(postId: number): Promise<Comment[]> {
 }
 
 // Check helper
-function check(
-  description: string,
-  actual: unknown,
-  expected: unknown
-): void {
+function check(description: string, actual: unknown, expected: unknown): void {
   if (actual === expected) {
     console.log(`PASS: ${description}`);
   } else {
-    console.log(
-      `FAIL: ${description} — expected ${expected}, got ${actual}`
-    );
+    console.log(`FAIL: ${description} — expected ${expected}, got ${actual}`);
   }
 }
 
@@ -101,7 +95,7 @@ async function main(): Promise<void> {
   check("User company", user.company.name, "Romaguera-Crona");
 
   // Intentionally misspelled property for Step 4:
-//   console.log(user.adress.city);
+  //   console.log(user.adress.city);
   // TypeScript should report an error because "adress" does not exist.
 
   // Post checks

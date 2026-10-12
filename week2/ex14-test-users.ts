@@ -75,7 +75,3 @@ if (firstUser !== undefined) {
     "standard_user → success",
   );
 }
-
-console.log(filterByResult(testUsers, "success").length); // 2
-console.log(filterByResult(testUsers, "locked").length); // 1
-console.log(filterByResult(testUsers, "error").length); // 1
