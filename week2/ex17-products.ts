@@ -30,30 +30,21 @@ const under20 = products.filter((p) => p.price < 20);
 console.log(under20.length); // 4
 
 // 3. How many are clothing
-const clothingCount = products.filter(
-  (p) => p.category === "clothing"
-).length;
+const clothingCount = products.filter((p) => p.category === "clothing").length;
 console.log(clothingCount); // 4
 
 // 4. The Onesie's price
-const onesie = products.find(
-  (p) => p.name === "Sauce Labs Onesie"
-);
+const onesie = products.find((p) => p.name === "Sauce Labs Onesie");
 if (onesie !== undefined) {
   console.log(onesie.price); // 7.99
 }
 
 // 5. Find Sauce Labs Hat
-const hat = products.find(
-  (p) => p.name === "Sauce Labs Hat"
-);
+const hat = products.find((p) => p.name === "Sauce Labs Hat");
 console.log(hat); // undefined
 
 // 6. Total of all prices, rounded to 2 decimals
-const total = products.reduce(
-  (sum, p) => sum + p.price,
-  0
-);
+const total = products.reduce((sum, p) => sum + p.price, 0);
 console.log(Number(total.toFixed(2))); // 129.94
 
 // 7. Names of clothing under $20
@@ -73,8 +64,8 @@ const anyOver40 = products.some((p) => p.price > 40);
 console.log(anyOver40); // true
 
 // BONUS 1. Most expensive product
-const mostExpensive = products.reduce(
-  (max, p) => (p.price > max.price ? p : max)
+const mostExpensive = products.reduce((max, p) =>
+  p.price > max.price ? p : max,
 );
 console.log(mostExpensive.name); // Sauce Labs Fleece Jacket
 
@@ -85,4 +76,6 @@ const sortedNames = [...products]
 
 console.log(sortedNames);
 console.log(sortedNames[0]); // Sauce Labs Onesie
-console.log(sortedNames[sortedNames.length - 1]);  // Sauce Labs Fleece Jacket
+console.log(sortedNames[sortedNames.length - 1]); // Sauce Labs Fleece Jacket
+
+
