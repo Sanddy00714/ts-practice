@@ -7,14 +7,22 @@ export interface TestUser {
   errorMessage?: string;
 }
 
+export type Category = "accessory" | "clothing";
+
+export interface Product {
+  name: string;
+  price: number;
+  category: Category;
+}
+
 export function check(
   description: string,
   actual: unknown,
-  expected: unknown
+  expected: unknown,
 ): void {
   const result = actual === expected ? "PASS" : "FAIL";
 
   console.log(
-    `${result} | ${description} | Expected: ${expected} | Actual: ${actual}`
+    `${result} | ${description} | Expected: ${expected} | Actual: ${actual}`,
   );
 }
