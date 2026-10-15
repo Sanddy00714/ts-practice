@@ -5,52 +5,45 @@ interface CartItem {
   price: number;
   quantity: number;
 }
+
 class Cart {
   private items: CartItem[] = [];
 
+  // Rewrite using find()
   addItem(name: string, price: number, quantity: number = 1): void {
-    for (const item of this.items) {
-      if (item.name === name) {
-        item.quantity += quantity;
-        return;
-      }
-    }
+    const existingItem = this.items.find((item) => item.name === name);
 
-    this.items.push({ name, price, quantity });
+    if (existingItem) {
+      existingItem.quantity += quantity;
+    } else {
+      this.items.push({ name, price, quantity });
+    }
   }
 
+  // Rewrite using reduce()
   getItemCount(): number {
-    let count = 0;
-
-    for (const item of this.items) {
-      count += item.quantity;
-    }
-
-    return count;
+    return this.items.reduce((count, item) => count + item.quantity, 0);
   }
 
   getLineCount(): number {
     return this.items.length;
   }
 
+  // Rewrite using filter()
   removeItem(name: string): void {
-    const remaining: CartItem[] = [];
-
-    for (const item of this.items) {
-      if (item.name !== name) {
-        remaining.push(item);
-      }
-    }
-    this.items = remaining;
+    this.items = this.items.filter((item) => item.name !== name);
   }
 
+  // Rewrite using reduce(), keeping the rounding
   getTotal(): number {
-    let totalAmount = 0;
-    for (const item of this.items) {
-      totalAmount += item.price * item.quantity;
-    }
+    const totalAmount = this.items.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0,
+    );
+
     return Math.round(totalAmount * 100) / 100;
   }
+
   isEmpty(): boolean {
     return this.items.length === 0;
   }
