@@ -16,8 +16,9 @@
     "expected": "success"
   },
   {
-    "username": "performance_glitch_user",
-    "password": "secret_sauce",
-    "expected": "error"
+    "username": "standard_user",
+    "password": "wrong_password",
+    "expected": "error",
+    "errorMessage": "Epic sadface: Username and password do not match any user in this service"
   }
 ]
