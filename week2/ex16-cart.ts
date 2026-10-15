@@ -67,7 +67,6 @@ function check(description: string, actual: unknown, expected: unknown): void {
   );
 }
 
-
 const emptyCart = new Cart();
 
 check("New cart: isEmpty()", emptyCart.isEmpty(), true);
